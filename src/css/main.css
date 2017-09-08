@@ -1,0 +1,225 @@
+* {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gloria Hallelujah', cursive;
+    background: white;
+    color: black;
+    width: 100%;
+    height: auto;
+    min-width: 100vw;
+    min-height: 100vh;
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    font-weight: 300;
+    font-size: 16px;
+    color: black;
+    overflow-x: hidden;
+}
+
+input {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 1rem;
+    font-weight: 100;
+    letter-spacing: 1px;
+    border: none;
+    border-bottom: 2px solid gray;
+    border-radius: 0;
+    outline: none;
+    background: transparent;
+}
+input[type=checkbox] {
+    width: 20px;
+    height:20px;
+    top: 10px;
+    border: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+input[type=checkbox]:before {
+    position: absolute;
+	content: "";
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	border: 2px solid black;
+    transition: all 0.3s ease;
+  }
+
+input[type=checkbox]:checked:before {
+	height: .5rem;
+	border-color: green;
+	border-top-style: none;
+	border-right-style: none;
+    transform: rotate(-45deg);
+    transition: all 0.3s ease;
+}
+
+input[type=checkbox]:checked:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 1.1rem;
+    height: 1.1rem;
+    background: #fff;
+    cursor: pointer;
+}
+
+.text-input {
+    width: 250px;
+    margin: 10px 0;
+}
+.text-prompt {
+    margin-right: 10px;
+}
+.check-input {
+    margin: 10px;
+    outline: none;
+}
+.clear-input {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 1rem;
+    font-weight: 100;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 20px 0;
+}
+.clear-input:hover {
+    background: black;
+    transition: background 1s ease;
+}
+.clear-text {
+    margin: 10px 0;
+}
+.text-result {
+    margin-left: 10px;
+}
+
+ul {
+    padding: 0;
+    margin: 10px 0;
+}
+li {
+    list-style: none;
+    letter-spacing: 1px;
+    animation: slideUp 1s linear;
+}
+li:last-child {
+    margin-bottom: 40px;
+}
+
+button {
+    color: white;
+    background: black;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+}
+button:hover {
+    cursor: pointer;
+}
+button:hover, button:active {
+    border: none;
+    outline: none;
+}
+
+.main-background {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    background: white;
+    transition: background 2s linear;
+}
+
+.red-yellow {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff3568+0,fade9a+100 */
+    background: #ff3568; /* Old browsers */
+    background: -webkit-linear-gradient(bottom left, #ff3568 0%, #fade9a 100%);
+    background: -o-linear-gradient(bottom left, #ff3568 0%, #fade9a 100%);
+    background: linear-gradient(to top right, #ff3568 0%, #fade9a 100%); /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3568', endColorstr='#fade9a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+.burgendy-purple {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b04359+0,e1afe7+100 */
+    background: #b04359; /* Old browsers */
+    background: -moz-linear-gradient(45deg, #b04359 0%, #e1afe7 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, #b04359 0%,#e1afe7 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, #b04359 0%,#e1afe7 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b04359', endColorstr='#e1afe7',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+.blue-green {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#00a0cd+0,baf362+100 */
+    background: #00a0cd; /* Old browsers */
+    background: -moz-linear-gradient(45deg, #00a0cd 0%, #baf362 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, #00a0cd 0%,#baf362 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, #00a0cd 0%,#baf362 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a0cd', endColorstr='#baf362',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.main-text-ctnr {
+    max-width: 525px;
+    background: white;
+    margin: 0 auto;
+    padding: 30px 30px 80px 30px;
+    /*z-index: 10;*/
+}
+h1 {
+    text-align: center;
+    font-size: 5rem;
+    letter-spacing: 3px;
+}
+
+.emoji-ctnr {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.emoji-img {
+    position: absolute;
+    top: calc(100vh - 25vw - 50px);
+    width: 25vw;
+    height: auto;
+    right: 50px;
+    transform: rotate(20deg);
+    opacity: 0;
+}
+.emoji-animation {
+    animation: emoji 2s ease;
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px));
+    } 100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes emoji {
+    0% {
+        opacity: 0;
+        transform: rotate(20deg) scale(1);
+    } 50% {
+        opacity: 1;
+        transform: rotate(20deg) scale(1.01);
+    } 100% {
+        opacity: 0;
+        transform: rotate(20deg) scale(1);
+    }
+}
+
+@media (max-width: 640px) {
+    
+}
