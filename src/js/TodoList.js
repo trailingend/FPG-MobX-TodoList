@@ -21,6 +21,9 @@ export default class TodoList extends React.Component {
         this.props.store.calcUncomplete();
         this.animateEmoji(todo.complete);
     }
+    toggleImportant(todo) {
+        todo.important = !todo.important;
+    }
     animateEmoji(isHappy) {
         if (isHappy) {
             this.props.store.animateHappy = true;
@@ -29,10 +32,10 @@ export default class TodoList extends React.Component {
             this.props.store.animateSad = true;
             this.props.store.animateHappy = false;
         }
-        setTimeout(() => {
-            this.props.store.animateSad = false;
-            this.props.store.animateHappy = false;
-        }, 2000);
+        // setTimeout(() => {
+        //     this.props.store.animateSad = false;
+        //     this.props.store.animateHappy = false;
+        // }, 2000);
     }
     render() {
         const {
@@ -48,7 +51,8 @@ export default class TodoList extends React.Component {
         const todoitems = filteredTodos.map( todo => (
             <li key={todo.id}>
                 <input className="check-input" type="checkbox" value={todo.complete} defaultChecked={todo.complete} onChange={this.toggleComplete.bind(this, todo)}/>
-                { todo.value }
+                <input className="mark-input" type="checkbox" value={todo.important} defaultChecked={todo.important} onChange={this.toggleImportant.bind(this, todo)}/>
+                <span className="text-value">{ todo.value }</span>
             </li>
         ));
 

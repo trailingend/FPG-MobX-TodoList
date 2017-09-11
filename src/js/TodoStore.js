@@ -4,11 +4,13 @@ class Todo {
     @observable value;
     @observable id;
     @observable complete;
+    @observable important;
 
     constructor(value) {
         this.value = value;
         this.id = Date.now();
         this.complete = false;
+        this.important = false;
     }
 }
 

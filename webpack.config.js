@@ -70,7 +70,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
         // { from: './src/images', to: './images'},
-        { from: './src/fonts', to: './fonts'},
+        // { from: './src/fonts', to: './fonts'},
     ], {
         ignore: ['*.scss', '.DS_Store']
     })
