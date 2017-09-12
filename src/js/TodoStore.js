@@ -26,6 +26,10 @@ export class TodoStore {
         var matchesFilter = new RegExp(this.filter, "i");
         return this.todos.filter( todo => !this.filter || matchesFilter.test(todo.value));
     }
+    calcUncomplete() {
+        this.numUncompleted = this.todos.filter( todo => !todo.complete).length;
+        return this.numUncompleted;
+    }
     createTodo(value) {
         if (value != "") {
             this.todos.push(new Todo(value));
@@ -37,9 +41,17 @@ export class TodoStore {
             this.calcUncomplete();
         }
     }
-    calcUncomplete() {
-        this.numUncompleted = this.todos.filter( todo => !todo.complete).length;
-        return this.numUncompleted;
+
+    swapFeatured() {
+        const featured = this.todos.filter( todo => todo.important);
+        const notfeatured = this.todos.filter( todo => !todo.important);
+        const afterFiltered = featured.concat(notfeatured);
+        this.todos.replace(afterFiltered);
+    }
+    deleteTodo(value) {
+        const others = this.todos.filter(todo => todo.id != value.id);
+        this.todos.replace(others);
+        this.calcUncomplete();
     }
     clearComplete = () => {
         const incompleteTodos = this.todos.filter(todo => !todo.complete);

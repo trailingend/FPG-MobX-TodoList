@@ -16,6 +16,9 @@ export default class TodoList extends React.Component {
             e.target.value = "";
         }
     }
+    deleteOne(todo) {
+        this.props.store.deleteTodo(todo);
+    }
     toggleComplete(todo) {
         todo.complete = !todo.complete;
         this.props.store.calcUncomplete();
@@ -23,6 +26,7 @@ export default class TodoList extends React.Component {
     }
     toggleImportant(todo) {
         todo.important = !todo.important;
+        this.props.store.swapFeatured();
     }
     animateEmoji(isHappy) {
         if (isHappy) {
@@ -50,8 +54,11 @@ export default class TodoList extends React.Component {
             todos } = this.props.store;
         const todoitems = filteredTodos.map( todo => (
             <li key={todo.id}>
-                <input className="check-input" type="checkbox" value={todo.complete} defaultChecked={todo.complete} onChange={this.toggleComplete.bind(this, todo)}/>
-                <input className="mark-input" type="checkbox" value={todo.important} defaultChecked={todo.important} onChange={this.toggleImportant.bind(this, todo)}/>
+                <div className="input-ctnr">
+                    <input className="check-input" type="checkbox" value={todo.complete} defaultChecked={todo.complete} onChange={this.toggleComplete.bind(this, todo)}/>
+                    <input className="mark-input" type="checkbox" value={todo.important} defaultChecked={todo.important} onChange={this.toggleImportant.bind(this, todo)}/>
+                    <input className="cross-input" type="checkbox" value="" defaultChecked="false" onClick={this.deleteOne.bind(this, todo)} />
+                </div>
                 <span className="text-value">{ todo.value }</span>
             </li>
         ));
